@@ -1,0 +1,218 @@
+# tasks.yaml - Basetaa ERP Task Backlog
+# Owner model: claude=spec, codex=review, glm=backend, gemini=frontend, hermes=orchestrator
+
+# Phase 0: Foundation (current)
+- id: ERP-000
+  title: Project Foundation
+  description: Repo skeleton, PRD, architecture docs, task backlog
+  owner_model: hermes
+  status: in_progress
+  phase: "0"
+
+- id: ERP-001
+  title: Spec - Accounting Core Data Model
+  description: Define GL/COA/journals/dimensions data model spec
+  owner_model: claude
+  reviewer: codex
+  status: pending
+  phase: "1"
+
+- id: ERP-002
+  title: Spec - Multi-Company Setup
+  description: Multi-company architecture, tenant provisioning
+  owner_model: claude
+  reviewer: codex
+  status: pending
+  phase: "1"
+
+- id: ERP-003
+  title: Spec - Chart of Accounts Templates
+  description: Country + industry COA templates (UAE first)
+  owner_model: claude
+  reviewer: codex
+  status: pending
+  phase: "1"
+
+- id: ERP-004
+  title: Spec - Financial Dimensions
+  description: Branch, Department, Project, Cost Center, Salesperson, Region, Channel
+  owner_model: claude
+  reviewer: codex
+  status: pending
+  phase: "1"
+
+- id: ERP-005
+  title: Spec - Smart Posting Rules
+  description: Auto GL account mapping engine
+  owner_model: claude
+  reviewer: codex
+  status: pending
+  phase: "1"
+
+- id: ERP-006
+  title: Spec - Manual Journals & Controls
+  description: Manual journal entry, validate/post, audit trail, reverse
+  owner_model: claude
+  reviewer: codex
+  status: pending
+  phase: "1"
+
+- id: ERP-007
+  title: Spec - Period Locking
+  description: Period lock, lock dates, permissioned reopening, audit trail
+  owner_model: claude
+  reviewer: codex
+  status: pending
+  phase: "1"
+
+- id: ERP-008
+  title: Spec - Approvals Engine
+  description: Approval rules, inbox, in-app notifications
+  owner_model: claude
+  reviewer: codex
+  status: pending
+  phase: "1"
+
+- id: ERP-009
+  title: Spec - Cheques
+  description: Issued/received cheques, status workflow, due reports
+  owner_model: claude
+  reviewer: codex
+  status: pending
+  phase: "1"
+
+- id: ERP-010
+  title: Spec - Bank Reconciliation
+  description: Manual rec, CSV/Excel import, matching
+  owner_model: claude
+  reviewer: codex
+  status: pending
+  phase: "1"
+
+- id: ERP-011
+  title: Spec - VAT & WHT
+  description: UAE VAT, WHT, e-invoicing (FTA-compliant)
+  owner_model: claude
+  reviewer: codex
+  status: pending
+  phase: "1"
+
+- id: ERP-012
+  title: Spec - Multi-Currency & Revaluation
+  description: Exchange rates, gain/loss, month-end revaluation
+  owner_model: claude
+  reviewer: codex
+  status: pending
+  phase: "1"
+
+- id: ERP-013
+  title: Spec - Expenses & Petty Cash
+  description: Expense claims, petty cash float, replenishment, approvals
+  owner_model: claude
+  reviewer: codex
+  status: pending
+  phase: "1"
+
+- id: ERP-014
+  title: Spec - Recurring Transactions
+  description: Auto-recurring invoices and journals
+  owner_model: claude
+  reviewer: codex
+  status: pending
+  phase: "1"
+
+- id: ERP-015
+  title: Spec - Intercompany
+  description: Intercompany sales/purchase/transfers/payments, mirror entries
+  owner_model: claude
+  reviewer: codex
+  status: pending
+  phase: "1"
+
+- id: ERP-016
+  title: Spec - Opening Balances & Onboarding
+  description: Setup wizard, checklist, opening balance import
+  owner_model: claude
+  reviewer: codex
+  status: pending
+  phase: "1"
+
+- id: ERP-017
+  title: Spec - Financial Reports & Dashboards
+  description: TB, P&L, BS, GL, Cash Flow, VAT, aging, interactive dashboards
+  owner_model: claude
+  reviewer: codex
+  status: pending
+  phase: "1"
+
+- id: ERP-018
+  title: Spec - Inventory Core
+  description: Products, variants, warehouses, locations, stock moves, valuation
+  owner_model: claude
+  reviewer: codex
+  status: pending
+  phase: "2"
+
+- id: ERP-019
+  title: Spec - Inventory Advanced
+  description: Landed cost, barcode, serial/lot/expiry, reorder rules, reservation
+  owner_model: claude
+  reviewer: codex
+  status: pending
+  phase: "2"
+
+- id: ERP-020
+  title: Spec - Purchase Flow
+  description: PR -> RFQ -> PO -> Receipt -> Bill -> Payment, 3-way matching
+  owner_model: claude
+  reviewer: codex
+  status: pending
+  phase: "3"
+
+- id: ERP-021
+  title: Spec - Sales Flow
+  description: Quote -> SO -> Delivery -> Invoice -> Receipt, credit limit, returns
+  owner_model: claude
+  reviewer: codex
+  status: pending
+  phase: "4"
+
+- id: ERP-022
+  title: Spec - CRM
+  description: Leads, opportunities, pipeline, activities, follow-ups
+  owner_model: claude
+  reviewer: codex
+  status: pending
+  phase: "5"
+
+- id: ERP-023
+  title: Spec - Frontend Architecture
+  description: Next.js setup, Carbon integration, RTL/LTR, i18n, routing
+  owner_model: claude
+  reviewer: codex
+  status: pending
+  phase: "6"
+
+- id: ERP-024
+  title: Spec - Frontend Accounting Screens
+  description: Dashboard, invoices, journals, reports, approval inbox
+  owner_model: claude
+  reviewer: codex
+  status: pending
+  phase: "6"
+
+- id: ERP-025
+  title: Spec - Smart Document Recognition (AI)
+  description: Invoice/bank statement OCR + extraction + pre-fill
+  owner_model: claude
+  reviewer: codex
+  status: pending
+  phase: "6"
+
+- id: ERP-026
+  title: Spec - Platform Features
+  description: Custom fields, templates, import/export, portal, security, backup
+  owner_model: claude
+  reviewer: codex
+  status: pending
+  phase: "6"
