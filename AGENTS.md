@@ -97,3 +97,34 @@ SELECT * FROM ir_config_parameter WHERE key IN ('database.expiration_date', 'dat
 -- expiration_date = 2099-12-31 23:59:59
 -- expiration_reason = none
 ```
+
+---
+
+## Odoo Panel Deployment (odoo-panel.basetaa.com)
+
+**Panel location:** `/home/hermesops/odoo-panel/` (pm2 process: `odoo-panel`)
+**Panel URL:** https://odoo-panel.basetaa.com/
+
+### How it works
+- Panel reads `lib/templates.js` for docker-compose generation
+- `lib/deploy.js` handles local + remote deployments
+- Custom addons are mounted from `/home/hermesops/odoo-panel/data/custom-addons`
+
+### Important notes
+1. **Custom addons mount:** `deployLocal` creates a symlink `./custom-addons` → `/home/hermesops/odoo-panel/data/custom-addons`
+2. **Remote deployments:** `ensureRemoteEnterprise` uploads `custom-addons.tar.gz` to `/opt/odoo-shared/custom-addons`
+3. **Module auto-install:** `basetaa_erp_config` has `auto_install: True` — installs automatically on DB init
+4. **2099 fix:** `post_init_hook` disables Publisher cron; `setup.sh` sets `expiration_date = 2099-12-31`
+
+### Updating custom-addons
+```bash
+cd /home/hermesops/odoo-panel/data/custom-addons
+# Edit module files
+git add . && git commit -m "update" && git push origin main
+# For remote servers, re-run deploy or manually sync /opt/odoo-shared/custom-addons
+```
+
+### Restart panel after code changes
+```bash
+pm2 restart odoo-panel
+```
