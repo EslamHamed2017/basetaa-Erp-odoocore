@@ -70,3 +70,30 @@ basetaa-erp/
 ├── scripts/               ← Utility scripts
 └── (code directories created during implementation)
 ```
+
+---
+
+## Custom Odoo Modules (for fresh deployments)
+
+When deploying a fresh Odoo instance (erpprofit, odoo_test, etc.), include the **basetaa_erp_config** module to prevent the Publisher Warranty cron from resetting DB expiration to trial.
+
+**Module:** `https://github.com/EslamHamed2017/basetaa_erp_config`
+
+**What it does:**
+- Disables the `Publisher: Update Notification` cron (mail.ir_cron_module_update_notification)
+- Prevents `database.expiration_date` from being reset to 30-day trial
+- Keeps DB expiration at 2099-12-31 (permanent)
+
+**Deployment steps:**
+1. Clone module to `custom-addons/basetaa_erp_config` (or mount as volume)
+2. Add to Odoo `--addons-path`: `/mnt/custom-addons,/mnt/enterprise-addons,/usr/lib/python3/dist-packages/odoo/addons`
+3. Module has `auto_install: True` — installs automatically on DB init
+4. `post_init_hook` disables the cron immediately
+
+**Verification after deploy:**
+```sql
+SELECT cron_name, active FROM ir_cron WHERE id = 4;  -- should be f (false)
+SELECT * FROM ir_config_parameter WHERE key IN ('database.expiration_date', 'database.expiration_reason');
+-- expiration_date = 2099-12-31 23:59:59
+-- expiration_reason = none
+```
